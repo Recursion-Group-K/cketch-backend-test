@@ -1,7 +1,22 @@
-import imp
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Drawing
-from user.serializer import UserSerializer
+
+
+
+class UserSerializer(serializers.ModelSerializer):
+    """ A serializer class for the User model """
+    class Meta:
+        model = User
+        fields = (
+            'id', 
+            'first_name', 
+            'last_name', 
+            'username',
+            'password', 
+            'is_active', 
+            'is_superuser'
+        )
 
 class DrawingSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
