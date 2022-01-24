@@ -7,6 +7,7 @@ from .serializer import DrawingSerializer, UserSerializer
 class DrawingViewSet(viewsets.ModelViewSet):
     queryset = Drawing.objects.all()
     serializer_class = DrawingSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 """ User View """

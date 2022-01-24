@@ -18,4 +18,4 @@ class Drawing(Model):
     json_data = JSONField(blank=True, null=True)
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
-    user = ForeignKey(User, related_name='drawings', on_delete=CASCADE)
+    user = ForeignKey(User, on_delete=CASCADE)

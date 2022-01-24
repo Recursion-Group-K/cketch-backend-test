@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
 class DrawingSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    # user = UserSerializer()
     class Meta:
         model = Drawing
         fields = (
@@ -29,6 +29,6 @@ class DrawingSerializer(serializers.ModelSerializer):
             'json_data', 
             'created_at', 
             'updated_at',
-            'user',
+            # 'user',
             'user_id'
         )
