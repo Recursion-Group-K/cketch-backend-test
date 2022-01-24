@@ -1,4 +1,4 @@
-from user.models import User
+from django.contrib.auth.models import User
 from django.db.models import (
     Model,
     CharField,
