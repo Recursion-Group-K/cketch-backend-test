@@ -8,7 +8,7 @@ class DrawingViewSet(viewsets.ModelViewSet):
     queryset = Drawing.objects.all()
     serializer_class = DrawingSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-
+    filter_fields = ['user']
 
 """ User View """
 class UserList(generics.ListAPIView):
