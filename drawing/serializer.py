@@ -10,10 +10,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             'id', 
-            'first_name', 
-            'last_name', 
             'username',
-            'password', 
+            'email'
             'is_active', 
             'is_superuser'
         )

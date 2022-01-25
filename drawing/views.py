@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets, generics, permissions
 from .models import Drawing
 from .serializer import DrawingSerializer, UserSerializer
+from django.contrib.auth.hashers import make_password
 
 """ Drawing View """
 class DrawingViewSet(viewsets.ModelViewSet):
@@ -23,6 +24,13 @@ class UserCreate(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAdminUser, )
+
+    def perform_create(self, serializer):
+        data = serializer.data
+        password = data.pop('password', 'something')
+        user = User(password=make_password(password), **data)
+        user.save()
+        return user
 
 
 class UserRetrieveUpdate(generics.RetrieveUpdateAPIView):
