@@ -27,6 +27,6 @@ class DrawingSerializer(serializers.ModelSerializer):
             'json_data', 
             'created_at', 
             'updated_at',
-            # 'user',
+            'user',
             'user_id'
         )
